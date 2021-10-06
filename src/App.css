@@ -1,38 +1,69 @@
+@import "~antd/dist/antd.css";
+
+.paddingData {
+  padding-inline-start: 0;
+}
 .App {
+  margin-left: 1em;
+}
+.TitleName {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fileBox,
+.forksBox {
+  margin-top: 1em;
+  border: 1px solid grey;
+  padding: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.numberFiles {
+  font-size: 1em;
+  color: #f50;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body,
+input,
+select,
+textarea,
+body * {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+body::after,
+body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  background-color: #f2f2f2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  position: relative;
+  max-width: 40rem;
+  margin: 5rem auto;
+  background: #fff;
+  width: 100%;
+  padding: 3rem 5rem;
+  border-radius: 1px;
+}
+
+.site-card-border-less-wrapper {
+  padding: 30px;
+  background: #f2f2f2;
+}
+
+.ant-card-head-title {
+  white-space: none;
+  text-overflow: initial;
 }
