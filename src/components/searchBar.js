@@ -54,13 +54,13 @@ const SearchBar = () => {
     localStorage.setItem("gist-favourites", JSON.stringify(items));
   };
 
-  // useEffect(() => {
-  //   const gistfavs = JSON.parse(localStorage.getItem("gist-favourites"));
+  useEffect(() => {
+    const gistfavs = JSON.parse(localStorage.getItem("gist-favourites"));
 
-  //   if (gistfavs) {
-  //     setFavourites(gistfavs);
-  //   }
-  // }, [favourites]);
+    if (gistfavs) {
+      setFavourites(gistfavs);
+    }
+  }, []);
 
   // const disableButton = (e) => {
   //   setDisable(e);
