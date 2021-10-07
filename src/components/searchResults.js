@@ -26,7 +26,9 @@ export const SearchResults = (props) => {
                   key={gist.id}
                   gistData={gist}
                   favourite={props.favourite}
+                  // disable={props.disable}
                   handleFavClick={props.handleFavClick}
+                  handleDisable={props.handleDisable}
                 />
               );
             })}

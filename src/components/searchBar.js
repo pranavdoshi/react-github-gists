@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input, Alert, Spin } from "antd";
 import getGistsFromGithubAPI from "./API";
 import { SearchResults } from "./searchResults";
@@ -13,6 +13,7 @@ const SearchBar = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [favourites, setFavourites] = useState([]);
+  const [disable, setDisable] = useState(null);
 
   const onSearch = async (username) => {
     const usersname = username.trim();
@@ -40,12 +41,28 @@ const SearchBar = () => {
   const addFav = (fav) => {
     const newFavouriteList = [...favourites, fav];
     setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
   };
 
   const removeFav = (data) => {
     const newFavouriteList = favourites.filter((fav) => fav.id !== data.id);
     setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
   };
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem("gist-favourites", JSON.stringify(items));
+  };
+
+  useEffect(() => {
+    const favs = JSON.parse(localStorage.getItem("gist-favourites"));
+    setFavourites(favs);
+    console.log(favourites);
+  }, []);
+
+  // const disableButton = (e) => {
+  //   setDisable(e);
+  // };
 
   return (
     <>
@@ -63,6 +80,8 @@ const SearchBar = () => {
         <SearchResults
           showAlert={true}
           handleFavClick={addFav}
+          // handleDisable={disableButton}
+          disable={disable}
           favourite={AddFavourite}
           data={data}
           username={username}
@@ -75,7 +94,7 @@ const SearchBar = () => {
           description="No data for this User"
           type="error"
           showIcon
-          style={{ marginTop: 10 }}
+          style={{ marginTop: 10, marginBottom: 20 }}
         />
       ) : null}
 
@@ -85,7 +104,7 @@ const SearchBar = () => {
           description="Please Enter Valid UserName"
           type="error"
           showIcon
-          style={{ marginTop: 10 }}
+          style={{ marginTop: 10, marginBottom: 20 }}
         />
       ) : null}
 
@@ -93,8 +112,10 @@ const SearchBar = () => {
         <div className="favourite-wrap">
           <h3>Favourites Gists</h3>
           <SearchResults
+            // disable={disable}
             showAlert={false}
             handleFavClick={removeFav}
+            // handleDisable={disableButton}
             favourite={RemoveFavourite}
             data={favourites}
             username={username}

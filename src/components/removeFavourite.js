@@ -1,7 +1,9 @@
 const RemoveFavourite = () => {
   return (
     <>
-      <span style={{ marginRight: "1em" }}>Remove from Favorites</span>
+      <span id="removeBtn" style={{ marginRight: "1em" }}>
+        Remove from Favorites
+      </span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
