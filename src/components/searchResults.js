@@ -2,22 +2,33 @@ import React from "react";
 import { Alert } from "antd";
 import { Cards } from "./cards";
 
-export const SearchResults = (data, username) => {
-  const userdata = data.data;
+export const SearchResults = (props) => {
+  const userdata = props.data;
   return (
     <>
-      {username !== null && userdata.length !== 0 ? (
+      {props.username !== null && userdata.length !== 0 ? (
         <>
           <Alert
-            message={`${data.username}'s Gists`}
+            message={`${props.username}'s Gists`}
             description={`${userdata.length} Gists found`}
             type="success"
             showIcon
-            style={{ marginTop: 10, marginBottom: 10 }}
+            style={{
+              marginTop: 10,
+              marginBottom: 10,
+              display: props.showAlert ? "block" : "none",
+            }}
           />
-          <div className="paddingData">
+          <div className="paddingData row">
             {userdata.map((gist, index) => {
-              return <Cards key={gist.id} gistData={gist} />;
+              return (
+                <Cards
+                  key={gist.id}
+                  gistData={gist}
+                  favourite={props.favourite}
+                  handleFavClick={props.handleFavClick}
+                />
+              );
             })}
           </div>
         </>

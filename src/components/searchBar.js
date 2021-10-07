@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Input, Alert, Spin } from "antd";
 import getGistsFromGithubAPI from "./API";
 import { SearchResults } from "./searchResults";
+import AddFavourite from "./addFavourite";
+import RemoveFavourite from "./removeFavourite";
 
 const { Search } = Input;
 
@@ -10,9 +12,9 @@ const SearchBar = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [favourites, setFavourites] = useState([]);
 
   const onSearch = async (username) => {
-    console.log(username);
     const usersname = username.trim();
     setUsername(usersname);
     setLoading(true);
@@ -35,9 +37,20 @@ const SearchBar = () => {
     setLoading(false);
   };
 
+  const addFav = (fav) => {
+    const newFavouriteList = [...favourites, fav];
+    setFavourites(newFavouriteList);
+  };
+
+  const removeFav = (data) => {
+    const newFavouriteList = favourites.filter((fav) => fav.id !== data.id);
+    setFavourites(newFavouriteList);
+  };
+
   return (
     <>
       <Search
+        className="mb-3"
         placeholder="Search by UserName"
         allowClear
         enterButton="Search"
@@ -47,7 +60,13 @@ const SearchBar = () => {
       {loading ? <Spin tip="Loading..." style={{ margin: 10 }} /> : null}
 
       {username !== "" && data && !error ? (
-        <SearchResults data={data} username={username} />
+        <SearchResults
+          showAlert={true}
+          handleFavClick={addFav}
+          favourite={AddFavourite}
+          data={data}
+          username={username}
+        />
       ) : null}
 
       {username && data.length === 0 ? (
@@ -69,6 +88,24 @@ const SearchBar = () => {
           style={{ marginTop: 10 }}
         />
       ) : null}
+
+      {favourites.length ? (
+        <div className="favourite-wrap">
+          <h3>Favourites Gists</h3>
+          <SearchResults
+            showAlert={false}
+            handleFavClick={removeFav}
+            favourite={RemoveFavourite}
+            data={favourites}
+            username={username}
+          />
+        </div>
+      ) : (
+        <div className="favourite-wrap">
+          <h3>Favourites Gists</h3>
+          <h5>No Gists added as Favourite</h5>
+        </div>
+      )}
     </>
   );
 };
