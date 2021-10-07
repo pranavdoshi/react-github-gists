@@ -61,3 +61,12 @@ $ yarn build
 I have deployed the demo application using github pages.
 
 - Live Demo URL: [https://pranavdoshi.github.io/react-github-gists/](https://pranavdoshi.github.io/react-github-gists/)
+
+## Possible Improvements
+
+- Pagination for large list of data.
+- Better Styling following Material Design standards.
+- Making use of redux for maintaining single source of state across entire application.
+- Optimizing number of API calls made.
+- Autocomplete feature for search bar.
+- Unit Tests - JEST & Enzyme.
