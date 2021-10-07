@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React App that uses Github API to show all public gists for an username.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Following features have been added
 
-### `npm start`
+1. Search: When a user enters a username, it should be able to get a list of all gists by that user.
+2. Add to Favourites: User can add gist to favorites section with click of button
+3. Remove from Favourites: User can remove gist from favourites section
+4. Storing the favourites: User can save the favourite gists to persist for longer duration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Libraries/Components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- create-react-app: Starter kit to build/create react app.
+- bootstrap: For styling and basic layout.
+- ant design(antd): React UI library with reusable components like Alerts,Search and Input.
+- Api calls: Javascript Promise based Fetch() Api.
+- gh-pages: For deploying and hosting react application on github pages.
 
-### `npm test`
+## Getting Started and Installation Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- First Git clone the repo into your computer
 
-### `npm run build`
+```
+git clone https://github.com/pranavdoshi/react-github-gists.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Open your terminal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+$ cd react-github-gists
+$ npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- This should install all the dependencies. Once done
+- Run
 
-### `npm run eject`
+```
+$ yarn start
+or
+$ npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- to start the server.
+- open (http://localhost:3000) in your browser.
+- This should open up the Demo App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Generating a Production build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+$ cd react-github-gists
+$ npm run build
+or
+$ yarn build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Live Demo
 
-## Learn More
+I have deployed the demo application using github pages.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Live Demo URL: [https://pranavdoshi.github.io/react-github-gists/](https://pranavdoshi.github.io/react-github-gists/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Possible Improvements
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Pagination for large list of data.
+- Better Styling following Material Design standards.
+- Making use of redux for maintaining single source of state across entire application.
+- Optimizing number of API calls made.
+- Autocomplete feature for search bar.
+- Unit Tests - JEST & Enzyme.

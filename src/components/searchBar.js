@@ -13,7 +13,7 @@ const SearchBar = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [favourites, setFavourites] = useState([]);
-  const [disable, setDisable] = useState(null);
+  // const [disable, setDisable] = useState(null);
 
   const onSearch = async (username) => {
     const usersname = username.trim();
@@ -55,9 +55,11 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem("gist-favourites"));
-    setFavourites(favs);
-    console.log(favourites);
+    const gistfavs = JSON.parse(localStorage.getItem("gist-favourites"));
+
+    if (gistfavs) {
+      setFavourites(gistfavs);
+    }
   }, []);
 
   // const disableButton = (e) => {
@@ -81,7 +83,7 @@ const SearchBar = () => {
           showAlert={true}
           handleFavClick={addFav}
           // handleDisable={disableButton}
-          disable={disable}
+          // disable={disable}
           favourite={AddFavourite}
           data={data}
           username={username}
@@ -108,7 +110,7 @@ const SearchBar = () => {
         />
       ) : null}
 
-      {favourites.length ? (
+      {favourites != null && favourites.length > 0 ? (
         <div className="favourite-wrap">
           <h3>Favourites Gists</h3>
           <SearchResults

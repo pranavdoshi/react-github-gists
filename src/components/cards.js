@@ -33,10 +33,7 @@ export const Cards = (props) => {
           // }
           className="btn btn-primary"
           type="button"
-          onClick={() =>
-            props.handleFavClick(unidata)
-            // props.handleDisable(unidata.id)
-          }
+          onClick={() => props.handleFavClick(props.gistData)}
         >
           <FavouriteComponent />
         </button>
