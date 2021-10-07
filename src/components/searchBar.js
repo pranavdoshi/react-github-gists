@@ -108,7 +108,7 @@ const SearchBar = () => {
         />
       ) : null}
 
-      {favourites.length ? (
+      {favourites != null && favourites.length > 0 ? (
         <div className="favourite-wrap">
           <h3>Favourites Gists</h3>
           <SearchResults
