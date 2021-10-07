@@ -54,11 +54,13 @@ const SearchBar = () => {
     localStorage.setItem("gist-favourites", JSON.stringify(items));
   };
 
-  useEffect(() => {
-    const favs = JSON.parse(localStorage.getItem("gist-favourites"));
-    setFavourites(favs);
-    console.log(favourites);
-  }, []);
+  // useEffect(() => {
+  //   const gistfavs = JSON.parse(localStorage.getItem("gist-favourites"));
+
+  //   if (gistfavs) {
+  //     setFavourites(gistfavs);
+  //   }
+  // }, [favourites]);
 
   // const disableButton = (e) => {
   //   setDisable(e);
@@ -108,7 +110,7 @@ const SearchBar = () => {
         />
       ) : null}
 
-      {favourites.length ? (
+      {favourites != null && favourites.length > 0 ? (
         <div className="favourite-wrap">
           <h3>Favourites Gists</h3>
           <SearchResults
