@@ -60,7 +60,7 @@ $ yarn build
 
 I have deployed the demo application using github pages.
 
-- Live Demo URL: [https://pranavdoshi.github.io/react-github-gists/](https://pranavdoshi.github.io/react-github-gists/)
+- Live Demo URL: [https://react-github-gists-deploy.herokuapp.com/](https://react-github-gists-deploy.herokuapp.com/)
 
 ## Possible Improvements
 
