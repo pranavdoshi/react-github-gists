@@ -18,6 +18,7 @@ Following features have been added
 - ant design(antd): React UI library with reusable components like Alerts,Search and Input.
 - Api calls: Javascript Promise based Fetch() Api.
 - gh-pages: For deploying and hosting react application on github pages.
+- heroku: Final deploy of app with CD features.
 
 ## Getting Started and Installation Instructions
 
